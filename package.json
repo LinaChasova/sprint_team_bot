@@ -1,0 +1,25 @@
+{
+  "name": "st_bot",
+  "version": "1.0.0",
+  "description": "basic bot for creating and joining timers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LinaChasova/sprint_team_bot.git"
+  },
+  "author": "Alina Chasova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LinaChasova/sprint_team_bot/issues"
+  },
+  "homepage": "https://github.com/LinaChasova/sprint_team_bot#readme",
+  "dependencies": {
+    "discord.js": "^13.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.5.0"
+  }
+}
