@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LinaChasova/sprint_team_bot.git"
+    "url": "git@github.com:LinaChasova/sprint_team_bot.git"
   },
   "author": "Alina Chasova",
   "license": "ISC",
