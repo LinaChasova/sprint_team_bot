@@ -3,4 +3,4 @@ function log(message) {
 	console.log(`[${date.toISOString()}] ${message}`);
 }
 
-module.exports = { log }
+module.exports = { log };
