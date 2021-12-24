@@ -49,7 +49,7 @@ const removeTag = async (channel, tag) => {
 
 const sendHugGif = async (message) => {
     log(`(sendHugGif) | send hug`);
-    const url = `https://api.tenor.com/v1/search?q=hug+anime+friends&key=${toner_token}&limit=100`;
+    const url = `https://api.tenor.com/v1/search?q=hug+anime+friendsh&key=${toner_token}&limit=100`;
     const response = await fetch(url);
     const result = await response.json();
     const index = Math.floor(Math.random() * result.results.length);
