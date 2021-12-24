@@ -1,5 +1,6 @@
 const timerCommand = '`timer';
 const joinCommand = '`join';
+const hugCommand = '`hug';
 const spaceRegExp = new RegExp('[\\s]+');
 const numberRegExp = new RegExp('^[\\d]+.?[\\d]+$');
 const numberUnitRegExp = new RegExp('^[\\d]+.?[\\d]*[smhd]$');
@@ -39,4 +40,5 @@ module.exports = {
 	sleep,
 	tags,
 	timerMessage,
+	hugCommand,
 };

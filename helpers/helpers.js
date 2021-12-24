@@ -1,7 +1,8 @@
 const { log } = require('../logging/logger.js');
 const { timerCommand, joinCommand, spaceRegExp,
         numberRegExp, numberUnitRegExp, units,
-        characters, tagRegExp, timerTags } = require('./constants.js');
+        characters, tagRegExp, timerTags,
+        hugCommand } = require('./constants.js');
 
 
 function isTimerCommand(message) {
@@ -84,6 +85,18 @@ function makeId(length) {
    return result;
 }
 
-const delay = ms => new Promise(res => setTimeout(res, ms));
+function isHugCommand(message) {
+	// spliting message by the space
+    log(`(isHugCommand) | checking the message | [${message.content}]`);
+    const args = message.content.split(spaceRegExp);
 
-module.exports = { timerCommand, joinCommand, isTimerCommand, isJoinCommand, makeId, delay };
+    // find index of the join command
+    // will return -1 if no such word
+    const index = args.findIndex(word => word === hugCommand);
+
+    if (index == -1) return false;
+
+    return true;
+}
+
+module.exports = { timerCommand, joinCommand, isTimerCommand, isJoinCommand, makeId, isHugCommand };

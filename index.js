@@ -1,9 +1,10 @@
 // Require the necessary discord.js classes
 const { Client, Intents } = require('discord.js');
 const { token } = require('./config.json');
-const { isTimerCommand, isJoinCommand } = require('./helpers/helpers.js');
-const { performTimer, removeTag, joinTimer } = require('./events.js');
+const { isTimerCommand, isJoinCommand, isHugCommand } = require('./helpers/helpers.js');
+const { performTimer, removeTag, joinTimer, sendHugGif } = require('./events.js');
 const { log } = require('./logging/logger.js');
+// const keepAlive = require("./server");
 
 // Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
@@ -14,7 +15,7 @@ client.once('ready', () => {
 });
 
 // bot commands on messages
-client.on('messageCreate', message => {
+client.on('messageCreate', async (message) => {
 	// this thing should return (boolean, dictionary)
 	if (message.author.id === client.user.id) return;
 
@@ -27,11 +28,15 @@ client.on('messageCreate', message => {
 		return;
 	}
 	const [isJoin, tag] = isJoinCommand(message);
-	log(tag);
 	if (isJoin) {
 		joinTimer(message, tag);
 	}
+
+	if (isHugCommand(message)) {
+		sendHugGif(message);
+	}
 });
 
+// keepAlive();
 // Login to Discord with your client's token
 client.login(token);
